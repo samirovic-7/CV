@@ -1,32 +1,67 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+  <v-app>
+
+    <v-main>
+      <router-view/>
+
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-nav {
-  padding: 30px;
-}
+import DiaSkills from '@/components/DiaSkills';
+import DiaWindows from "@/components/DiaWindows";
+import DiaCer from "@/components/DiaCer";
+import DiaProjects from "@/components/DiaProjects";
+import DiaProfile from "@/components/DiaProfile";
+import DiaContact from "@/components/DiaContact";
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+export default {
+  name: 'App',
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+
+
+
+    data () {
+      return {
+        dialog: false,
+        dialogOne: false,
+        dialogTwo: false,
+        dialogThree: false,
+        dialogFour: false,
+        dialogFive: false,
+        dialogWindows:false
+      }
+    },
+
+    components: {
+      // eslint-disable-next-line vue/no-unused-components
+      DiaWindows,
+      // eslint-disable-next-line vue/no-unused-components
+      DiaSkills,
+      // eslint-disable-next-line vue/no-unused-components
+      DiaCer,
+      // eslint-disable-next-line vue/no-unused-components
+      DiaProjects,
+      // eslint-disable-next-line vue/no-unused-components
+      DiaProfile,
+      // eslint-disable-next-line vue/no-unused-components
+      DiaContact,
+    },
+
+  methods:{
+
+    someMethod(event) {
+      let x = event.pageX;
+      let y = event.pageY;
+      let z = event.screenX;
+      let C = event.screenY;
+      let V = event.clientX;
+      let B = event.clientY;
+      console.log(x +" "+ y+" "+ z +" "+ C+" "+ V+" "+ B);
+    }
+  }
+};
+</script>
+<style scoped></style>
